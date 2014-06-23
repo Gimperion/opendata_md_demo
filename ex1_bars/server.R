@@ -63,7 +63,9 @@ shinyServer(function(input, output) {
             ds <- datasetInput()
             categories <- names(ds)[3:length(ds)]
             
-            stacked <- gvisColumnChart(ds, xvar='fiscal_year', yvar=categories, options=list(isStacked=TRUE, chartArea='{left:80,top:50,width:"75%", height:"60%"}',orientation='horizontal', title="Contract Amount Subseted", width=1080))
+            insert <- toupper(gsub("_", " ", input$subset))
+            
+            stacked <- gvisColumnChart(ds, xvar='fiscal_year', yvar=categories, options=list(isStacked=TRUE, chartArea='{left:80,top:50,width:"75%", height:"60%"}',orientation='horizontal', title=sprintf("Contract Amount Subset by %s", insert), width=1080))
         }
         
     })

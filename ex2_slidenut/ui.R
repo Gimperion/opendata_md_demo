@@ -14,8 +14,11 @@ shinyUI(pageWithSidebar(
         ),
         
         selectInput("subset", "Subsets Available:", 
-                    choices = c("no subset", "major_sector", "procurement_category", "supplier_country")
-        )
+                    choices = c("major_sector", "procurement_category", "procurement_method", "product_line","project_name", "supplier_country")
+        ),
+        
+        sliderInput("fiscal_year", "Fiscal Year Range:",
+                    min = 2000, max = 2014, value = c(2008,2013))
     ),
     
     mainPanel(
